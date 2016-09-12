@@ -1,5 +1,6 @@
 #! /usr/bin/perl
 
+#HEADER
 print "Content-type: text/html\n";
 print "Server-Software:",$ENV{'SERVER_NAME'},"\n";
 print "Server-Port:",$ENV{'SERVER_PORT'},"\n";
@@ -8,10 +9,22 @@ print "Content-Length:",$ENV{'CONTENT_LENGTH'},"\n";
 print "Remote-Addr: ",$ENV{'REMOTE_ADDR'},"\n";
 print "\n\n";
 
+#Body - Few Links to Projects
 print "<html><head><title>Simple CGI</title></head>";
-print "<h1> My Simple CGI </h1><body><div id='project_links'>";
+print "<h1 id='main_title'> My Simple CGI </h1><body><div><ul id ='projects'>";
+print "<h3 id='project_list_title'>Fun Projects</h3>";
 print "<li><a href = 'http://github.com/mh122354/VR-Frogger'>VR Frogger Game";
 print "</a></li><li><a href = 'http://github.com/mh122354/Space-Shooter'>Space";
 print "Shooter Game</a></li><li><a href='http://github.com/mh122354/7MinuteWorkout'>7 Minute Workout";
 print "</a></li></ul></div>";
-print"</body></html>";
+
+#Get Query String, Split into List  
+$query = $ENV{'QUERY_STRING'};
+@values = split(/&/,$query);
+
+print "<h3='query_string'>Query String List</h3><div id='q_list'><ol id='list'>";
+foreach $i (@values){
+	($field_name,$data)=split(/=/,$i);
+	print "<li>$field_name=$data</li>";
+	}
+print "</div></ol>";
