@@ -20,11 +20,10 @@ print "</a></li><li><a href = 'http://github.com/mh122354/Space-Shooter'>Space";
 print "Shooter Game</a></li><li><a href='http://github.com/mh122354/7MinuteWorkout'>7 Minute Workout";
 print "</a></li></ul></div>";
 
-#$content = GET( $ARGV[0]);
-#print $content;
 
-#Get Query String, Split into List  
-$query = $ENV{'QUERY_STRING'};
+#Get Query String
+$query =  $ENV{'QUERY_STRING'};
+#Turn string into list
 @values = split(/&/,$query);
 
 print "<h3 id='query_string'>Query String List</h3><div id='q_list'><ol id='list'>";
