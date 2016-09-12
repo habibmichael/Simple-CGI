@@ -11,16 +11,17 @@ print "Remote-Addr: ",$ENV{'REMOTE_ADDR'},"\n";
 print "\n\n";
 
 #Body - Few Links to Projects
-print "<html><head><title>Simple CGI</title></head>";
-print "<h1 id='main_title'> My Simple CGI </h1><body>";
-print "<h3 id='project_list_title'>Fun Projects</h3><div><ul id='projects'>";
+print "<html><head>";
+print "<link rel='stylesheet' href='simple.css'> <title>Simple CGI</title></head>";
+print "<h1 id='main_title'> My Simple CGI </h1><body><div id='projects'>";
+print "<h3 id='project_list_title'>Fun Projects</h3><ul>";
 print "<li><a href = 'http://github.com/mh122354/VR-Frogger'>VR Frogger Game";
 print "</a></li><li><a href = 'http://github.com/mh122354/Space-Shooter'>Space";
 print "Shooter Game</a></li><li><a href='http://github.com/mh122354/7MinuteWorkout'>7 Minute Workout";
 print "</a></li></ul></div>";
 
-$content = GET( $ARGV[0]);
-print $content;
+#$content = GET( $ARGV[0]);
+#print $content;
 
 #Get Query String, Split into List  
 $query = $ENV{'QUERY_STRING'};
@@ -37,4 +38,5 @@ foreach $i (@values){
 		print"</li>";		
 	}
 	}
-print "</div></ol>";
+print "</div></ol></body></html>";
+exit(0);
